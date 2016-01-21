@@ -29,7 +29,7 @@ class DevTaskRunnerCronTask implements CronTask
 					$parts = explode('=', $param);
 
 					if (count($parts) === 2) {
-						$param[$parts[0]] = $parts[1];
+						$paramList[$parts[0]] = $parts[1];
 					}
 				}
 			}
