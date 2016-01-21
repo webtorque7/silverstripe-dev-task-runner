@@ -1,0 +1,3 @@
+SilverStripe module for running dev tasks through the CMS.
+
+Uses cron task to pull tasks off a queue one at a time.
