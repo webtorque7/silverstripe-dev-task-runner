@@ -29,11 +29,9 @@ class DevTaskRun extends DataObject
 		//default to all tasks
 		if (!$tasks) {
 			$tasks = ClassInfo::subclassesFor('BuildTask');
+			//remove first item which is BuildTask
+			array_shift($tasks);
 		}
-
-		//remove first item which is BuildTask
-		array_shift($tasks);
-
 
 		foreach ($tasks as $task) {
 			$taskList[$task] = singleton($task)->getTitle();
