@@ -1,0 +1,4 @@
+Name: devtaskrunnerconfig
+---
+DevTaskRunnerCronTask:
+  schedule: '*/2 * * * *'
