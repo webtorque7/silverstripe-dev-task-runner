@@ -21,12 +21,20 @@ class DevTaskRun extends DataObject
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
 
-		$tasks = ClassInfo::subclassesFor('BuildTask');
+		$taskList = array();
+
+		//defined allowed task list
+		$tasks = $this->config()->task_list;
+
+		//default to all tasks
+		if (!$tasks) {
+			$tasks = ClassInfo::subclassesFor('BuildTask');
+		}
 
 		//remove first item which is BuildTask
 		array_shift($tasks);
 
-		$taskList = array();
+
 		foreach ($tasks as $task) {
 			$taskList[$task] = singleton($task)->getTitle();
 		}

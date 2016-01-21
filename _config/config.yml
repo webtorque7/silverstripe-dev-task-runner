@@ -2,3 +2,7 @@ Name: devtaskrunnerconfig
 ---
 DevTaskRunnerCronTask:
   schedule: '*/2 * * * *'
+#Set a defined allowed list of tasks
+#DevTaskRun:
+#  task_list:
+#    - FilesystemSyncTask
