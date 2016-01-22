@@ -9,5 +9,7 @@
             "email": "conrad@webtorque.co.nz"
         }
     ],
-    "require": {}
+    "require": {
+        "silverstripe/framework": "~3.1"
+    }
 }
