@@ -1,5 +1,0 @@
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/webtorque7/silverstripe-dev-task-runner/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/webtorque7/silverstripe-dev-task-runner/?branch=master)
-
-SilverStripe module for running dev tasks through the CMS.
-
-Uses cron task to pull tasks off a queue one at a time.
