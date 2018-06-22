@@ -1,5 +1,14 @@
 <?php
 
+namespace Webtorque\DevTaskRunner;
+
+use SilverStripe\Control\HTTPRequest;
+use SilverStripe\Core\Config\Config;
+use SilverStripe\Core\Injector\Injector;
+use SilverStripe\CronTask\Interfaces\CronTask;
+use SilverStripe\ORM\FieldType\DBDatetime;
+use Webtorque\DevTaskRunner\Models\DevTaskRun;
+
 /**
  * Created by PhpStorm.
  * User: Conrad
@@ -39,11 +48,11 @@ class DevTaskRunnerCronTask implements CronTask
 			$nextTask->Status = 'Running';
 			$nextTask->write();
 
-			$request = new SS_HTTPRequest('GET', 'dev/tasks/' . $nextTask->Task, $paramList);
+			$request = new HTTPRequest('GET', 'dev/tasks/' . $nextTask->Task, $paramList);
 			$task->run($request);
 
 			$nextTask->Status = 'Finished';
-			$nextTask->FinishDate = SS_Datetime::now()->getValue();
+			$nextTask->FinishDate = DBDatetime::now()->getValue();
 			$nextTask->write();
 
 			echo 'Finished task ' . $task->getTitle() . "\n";

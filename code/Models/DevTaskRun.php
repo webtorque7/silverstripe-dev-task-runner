@@ -1,12 +1,22 @@
 <?php
 
+namespace Webtorque\DevTaskRunner\Models;
+
+use SilverStripe\Core\ClassInfo;
+use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\TextField;
+use SilverStripe\ORM\DataObject;
+
 class DevTaskRun extends DataObject
 {
+
+    private static $table_name="DevTaskRun";
+
 	private static $db = array(
 		'Task' => 'Varchar(150)',
 		'Params' => 'Varchar(255)',
 		'Status' => 'Enum("Queued,Running,Finished", "Queued")',
-		'FinishDate' => 'SS_Datetime'
+		'FinishDate' => 'Datetime'
 	);
 
 	private static $summary_fields = array(
@@ -47,7 +57,7 @@ class DevTaskRun extends DataObject
 	}
 
 	public function TaskTitle() {
-		return singleton($this->Task)->getTitle();
+		return class_exists($this->Task) ? singleton($this->Task)->getTitle() : $this->Task;
 	}
 
 	public static function get_next_task()

@@ -1,7 +1,7 @@
 {
     "name": "webtorque/dev-task-runner",
     "description": "Runs dev tasks from a queue utilising cron",
-    "type": "silverstripe-module",
+    "type": "silverstripe-vendormodule",
     "license": "MIT",
     "authors": [
         {
@@ -10,7 +10,8 @@
         }
     ],
     "require": {
-        "silverstripe/framework": "~3.1",
-        "silverstripe/crontask": "^1.1"
+        "silverstripe/framework": "^4@stable",
+        "silverstripe/crontask": "dev-master",
+        "silverstripe/admin": "^1.1"
     }
 }

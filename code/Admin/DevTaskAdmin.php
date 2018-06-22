@@ -1,9 +1,16 @@
 <?php
 
+namespace Webtorque\DevTaskRunner\Admin;
+
+use Cron\CronExpression;
+use SilverStripe\Admin\ModelAdmin;
+use SilverStripe\Forms\LiteralField;
+use Webtorque\DevTaskRunner\DevTaskRunnerCronTask;
+use Webtorque\DevTaskRunner\Models\DevTaskRun;
 
 class DevTaskAdmin extends ModelAdmin
 {
-	private static $managed_models = array('DevTaskRun');
+	private static $managed_models = array(DevTaskRun::class);
 
 	private static $menu_title = 'Dev Tasks';
 	private static $url_segment = 'dev-tasks';
@@ -13,7 +20,7 @@ class DevTaskAdmin extends ModelAdmin
 		$form = parent::getEditForm($id, $fields);
 
 		$task = new DevTaskRunnerCronTask();
-		$cron = Cron\CronExpression::factory($task->getSchedule());
+		$cron = CronExpression::factory($task->getSchedule());
 		$nextRun = $cron->getNextRunDate()->format('Y-m-d H:i:s');
 		$form->Fields()->unshift(LiteralField::create('NextRunMessage', '<p class="message">Next run at ' . $nextRun . '</p>'));
 
