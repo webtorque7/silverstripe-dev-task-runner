@@ -57,7 +57,7 @@ class DevTaskRun extends DataObject
 	}
 
 	public function TaskTitle() {
-		return singleton($this->Task)->getTitle();
+		return class_exists($this->Task) ? singleton($this->Task)->getTitle() : $this->Task;
 	}
 
 	public static function get_next_task()

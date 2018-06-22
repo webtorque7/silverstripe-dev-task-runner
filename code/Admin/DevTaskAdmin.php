@@ -6,10 +6,11 @@ use Cron\CronExpression;
 use SilverStripe\Admin\ModelAdmin;
 use SilverStripe\Forms\LiteralField;
 use Webtorque\DevTaskRunner\DevTaskRunnerCronTask;
+use Webtorque\DevTaskRunner\Models\DevTaskRun;
 
 class DevTaskAdmin extends ModelAdmin
 {
-	private static $managed_models = array('DevTaskRun');
+	private static $managed_models = array(DevTaskRun::class);
 
 	private static $menu_title = 'Dev Tasks';
 	private static $url_segment = 'dev-tasks';
