@@ -1,7 +1,17 @@
 <?php
 
+namespace Webtorque\DevTaskRunner\Models;
+
+use SilverStripe\Core\ClassInfo;
+use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\TextField;
+use SilverStripe\ORM\DataObject;
+
 class DevTaskRun extends DataObject
 {
+
+    private static $table_name="DevTaskRun";
+
 	private static $db = array(
 		'Task' => 'Varchar(150)',
 		'Params' => 'Varchar(255)',
