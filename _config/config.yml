@@ -1,8 +1,7 @@
 Name: devtaskrunnerconfig
 ---
-DevTaskRunnerCronTask:
+Webtorque\DevTaskRunner\DevTaskRunnerCronTask:
   schedule: '*/2 * * * *'
-#Set a defined allowed list of tasks
-#DevTaskRun:
+#Webtorque\DevTaskRunner\Model\DevTaskRun:
 #  task_list:
-#    - FilesystemSyncTask
+#    - PropertyDownloadTask
